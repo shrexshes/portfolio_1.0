@@ -84,9 +84,9 @@ export default function Preloader() {
             </div>
 
             {/* Centered Percentage - Absolute positioned to be strictly in middle */}
-            <div className="absolute inset-0 z-50 flex items-center justify-right pointer-events-none mix-blend-difference">
+            <div className="absolute inset-0 z-50 flex items-center justify-center pointer-events-none mix-blend-difference">
                 <h1
-                    className="text-9xl font-bold text-white font-jet tracking-tighter"
+                    className="text-3xl font-bold text-white font-jet tracking-tighter"
                 >
                     <span className="loader-text">
                         <span ref={percentageRef}>loading 0%</span>

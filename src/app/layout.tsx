@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Inter_Tight  } from "next/font/google";
 import "./globals.css";
 import Header from "@/layout/header";
 import localFont from "next/font/local";
 import Preloader from "@/components/Preloader";
+import CustomCursor from "@/components/custom-cursor";
 
 const jet_mono = localFont({
   src: "../../public/fonts/jetbrains-mono.ttf",
@@ -20,10 +21,11 @@ const relio = localFont({
 //   subsets: ["latin"],
 // });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter =  Inter_Tight ({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
+
 
 export const metadata: Metadata = {
   title: "Ayush Shrestha",
@@ -38,9 +40,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jet_mono.variable} ${relio.variable} antialiased`}
+        className={`${jet_mono.variable} ${inter.variable} antialiased`}
       >
-        {/* <Preloader /> */}
+        <CustomCursor/>
+        <Preloader />
         <Header />
         {children}
       </body>

@@ -15,13 +15,13 @@ const Header = () => {
 
   return (
     <header className="fixed top-4 left-0 right-0 z-50 flex justify-center  px-4">
-      <div className="w-full max-w-[1100px] backdrop-blur-md bg-radial bg-white/10 bg-linear-300 from-neutral-600 to-neutral-900/60 border border-white/10 shadow-lg shadow-black/10 rounded-full px-6 py-4 transition-all duration-300">
+      <div className="w-full max-w-[1100px] backdrop-blur-md bg-radial bg-white/10 bg-linear-300 from-gray-800 to-gray-900/60 border-1 border-gray-600 shadow-lg shadow-black/30 rounded-full px-6 py-4 transition-all duration-300">
         <div className="flex items-center justify-between">
 
           {/* Logo */}
           <a href="/" className="group">
-            <h1 className="text-xl font-bold font-jet text-white tracking-tighter">
-              ayush<span className="text-neutal-400 group-hover:text-neutral-300 transition-colors">.</span>
+            <h1 className="text-xl font-bold font-inter text-white tracking-tighter">
+              ayush<span className="text-neutal-400 group-hover:text-gray-300 transition-colors">.</span>
             </h1>
 
           </a>
@@ -37,9 +37,9 @@ const Header = () => {
                   <li key={index}>
                     <a
                       href={link.href}
-                      className={`font-jet capitalize transition-all duration-300 ${isContact
-                        ? "bg-white hover:bg-neutral-200 text-black px-5 py-2 rounded-full font-bold shadow-[0_0_15px_rgba(16,185,129,0.3)] hover:shadow-[0_0_25px_rgba(16,185,129,0.5)]"
-                        : "text-neutral-100 hover:text-white relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-neutral-100 after:transition-all after:duration-300 hover:after:w-full"
+                      className={`font-jet font-bold capitalize transition-all duration-300 ${isContact
+                        ? "bg-white hover:bg-gray-200 text-black px-5 py-2 rounded-full font-bold shadow-[0_0_15px_rgba(16,185,129,0.3)] hover:shadow-[0_0_25px_rgba(16,185,129,0.5)]"
+                        : "text-gray-100 hover:text-white relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-gray-100 after:transition-all after:duration-300 hover:after:w-full"
                         }`}
                     >
                       {link.name}
@@ -54,7 +54,7 @@ const Header = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white hover:text-neutral-400 transition-colors focus:outline-none"
+              className="text-white hover:text-gray-400 transition-colors focus:outline-none"
             >
               {isMobileMenuOpen ? (
                 // Close Icon (X)
@@ -82,9 +82,9 @@ const Header = () => {
                 <a
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block text-lg font-jet capitalize py-2 ${link.name === "contact"
-                    ? "text-neutral-100 font-bold"
-                    : "text-neutral-300 hover:text-white"
+                  className={`block text-lg font-inter capitalize py-2 ${link.name === "contact"
+                    ? "text-gray-100 font-bold"
+                    : "text-gray-300 hover:text-white"
                     }`}
                 >
                   {link.name}
