@@ -43,7 +43,7 @@ export default function RootLayout({
         className={`${jet_mono.variable} ${inter.variable} antialiased`}
       >
         <CustomCursor/>
-        <Preloader />
+        {/* <Preloader /> */}
         <Header />
         {children}
       </body>

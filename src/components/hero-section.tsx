@@ -29,7 +29,7 @@ const HeroSection = () => {
 
         tl.to(bgText.current, {
             y: 5,
-            ease: "none"
+            ease: "none",
         }, 0)
         tl.from(".hero-badge", {
             y: -20,
@@ -127,7 +127,7 @@ const HeroSection = () => {
 
 
             {/* --- Main Content --- */}
-            <div className="z-20 text-center px-4 max-w-4xl mx-auto flex flex-col items-center gap-6">
+            <div className="z-20 text-center px-4 max-w-4xl mt-20 mx-auto flex flex-col items-center gap-6">
 
                 {/* Status Badge */}
                 <div className="hero-badge inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm text-sm font-jet text-slate-300 mb-2">
@@ -139,16 +139,17 @@ const HeroSection = () => {
                 </div>
 
                 {/* Headline */}
-                <h1 ref={bgText} className="font-bold font-inter tracking-tighter space-y-2 leading-[1]">
-                    <span className="hero-headline-1 text-9xl inline-block">Upgrading </span>
+                <h1 ref={bgText} className="font-bold font-inter tracking-tighter  leading-[0.2]">
+                    <span className="hero-headline-1 text-6xl md:text-8xl inline-block">Upgrading </span>
                     <br />
-                    <span className="hero-headline-2 text-9xl bg-clip-text text-transparent flex items-center gap-5 bg-gradient-to-b from-white via-white to-white/40 ">
-                        digtal <Image width={300} height={300} alt="mac image" className="w-30 " src="/images/mac.png"/> future
+                    <span className="hero-headline-2 text-6xl md:text-8xl bg-clip-text text-transparent flex items-center gap-5 bg-gradient-to-b from-white via-white to-white/40 ">
+                        digtal <Image width={300} height={300} alt="mac image" className="w-20 md:w-30 " src="/images/mac.png"/> future
                     </span>  <br />
-                    <span className="hero-headline-2  font-jet text-5xl bg-clip-text text-transparent bg-gradient-to-t from-white via-white to-white/70 inline-block">
-                        for homosapiens. 
-                    </span>
+                    
                 </h1>
+                <span className="hero-headline-2 font-inter tracking-tight italic font-medium text-3xl md:text-4xl bg-clip-text text-transparent bg-gradient-to-t from-gray-400 via-white to-white/70">
+                    for homosapiens who refuse to stop evolving.
+                    </span>
 
                 {/* Sub-headline */}
                 <p className="hero-text text-lg md:text-xl text-white font-jet max-w-2xl mx-auto leading-relaxed">
@@ -165,7 +166,7 @@ const HeroSection = () => {
 
 
                 {/* Buttons */}
-                <div className="hero-buttons flex flex-col sm:flex-row items-center gap-4 mt-4">
+                <div className="hero-buttons flex flex-row items-center gap-4 mt-4">
 
                     {/* Primary Button */}
                     <button className="group relative px-8 py-4 bg-white text-black font-jet font-bold text-sm tracking-wide overflow-hidden">
