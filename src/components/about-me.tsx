@@ -8,6 +8,7 @@ import AsciiImage from "./ascii-image";
 import TextReveal from "./text-reveal";
 import Image from "next/image";
 import { Code, Hammer } from "lucide-react";
+import FirefliesBackground from "./fireflies-background";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,12 +44,13 @@ const AboutMe = () => {
     return (
         <section
             ref={container}
-            className="relative min-h-screen w-full bg-slate-900/90 flex items-center justify-center overflow-hidden py-24"
+            className="relative min-h-screen w-full bg-black flex items-center justify-center overflow-hidden py-24"
         >
+            <FirefliesBackground />
             <AsciiImage src="/images/sword.jpg" width={100} className="absolute z-0  bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-0 opacity-80" />
 
             {/* --- Background Parallax Layer --- */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 opacity-10">
+            <div className="absolute bottom-0 inset-0 flex items-center justify-center pointer-events-none z-0 opacity-10">
                 <h2
                     ref={bgText}
                     className="text-[20vw] font-bold text-white font-jet leading-none whitespace-nowrap select-none"

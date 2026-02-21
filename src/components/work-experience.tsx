@@ -26,7 +26,7 @@ const experiences = [
         description: "Built scalable RESTful APIs and managed database optimizations. Collaborated with UX teams to deliver pixel-perfect responsive interfaces.",
         tech: ["Node.js", "PostgreSQL", "React", "AWS"]
     },
-    
+
 ];
 
 const WorkExperience = () => {
