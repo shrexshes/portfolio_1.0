@@ -8,9 +8,10 @@ import WorkExperience from './work-experience';
 
 const HomePage = () => {
   return (
-    <div>
+    <div className='relative'>
       <HeroSection />
-      <BannerHome />
+      
+      <div className='sticky top-0 z-0'><BannerHome /></div>
       <AboutMe />
       <WorkExperience />
     </div>

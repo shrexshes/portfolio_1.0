@@ -73,7 +73,7 @@ const HeroSection = () => {
     }, { scope: containerRef });
 
     return (
-        <section ref={containerRef} className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-gray-900/60 text-white selection:bg-gray-500/30">
+        <section ref={containerRef} className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden bg-[#0C134F]/80 text-white selection:bg-gray-500/30">
 
             {/* --- Background Elements --- */}
 
