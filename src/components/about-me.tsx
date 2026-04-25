@@ -6,16 +6,17 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AsciiImage from "./ascii-image";
 import TextReveal from "./text-reveal";
-import Image from "next/image";
-import { Code, Hammer } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import FirefliesBackground from "./fireflies-background";
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== "undefined") {
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 const AboutMe = () => {
     const container = useRef<HTMLDivElement>(null);
     const bgText = useRef<HTMLHeadingElement>(null);
-    const imageAndShapes = useRef<HTMLDivElement>(null);
+    const visualContent = useRef<HTMLDivElement>(null);
 
     useGSAP(() => {
         const tl = gsap.timeline({
@@ -23,78 +24,102 @@ const AboutMe = () => {
                 trigger: container.current,
                 start: "top bottom",
                 end: "bottom top",
-                scrub: 2, // Smooth scrubbing
+                scrub: 1.5,
             },
         });
 
-        // Background Text Moves Slower (Parallax Depth)
-        tl.to(bgText.current, {
-            y: 300,
-            ease: "none",
-        }, 0);
+        // Parallax: Background text moves down
+        tl.to(bgText.current, { y: 200, ease: "none" }, 0);
 
-        // Image/Shapes Move Faster (foreground effect)
-        tl.to(imageAndShapes.current, {
-            y: -150,
-            ease: "none",
-        }, 0);
+        // Parallax: Visual elements move up
+        tl.to(visualContent.current, { y: -100, ease: "none" }, 0);
 
     }, { scope: container });
 
     return (
         <section
             ref={container}
-            className="relative min-h-screen w-full bg-black flex items-center justify-center overflow-hidden py-24"
+            className="relative min-h-screen w-full bg-red-600 flex items-center overflow-hidden py-24"
         >
             <FirefliesBackground />
-            <AsciiImage src="/images/lady.jpg" width={80} className="absolute z-0 top-0 left-0 transform opacity-80" />
 
             {/* --- Background Parallax Layer --- */}
-            <div className="absolute top-0 inset-0 flex items-center justify-center pointer-events-none z-0 opacity-10">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
                 <h2
                     ref={bgText}
-                    className="text-[20vw] font-bold text-white font-jet leading-none whitespace-nowrap select-none"
+                    className="text-[25vw] font-bold text-black/10 font-host leading-none whitespace-nowrap select-none"
                     style={{ willChange: "transform" }}
                 >
                     ABOUT ME
                 </h2>
             </div>
 
-            {/* --- Main Content Grid --- */}
-            <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
+            {/* --- Main Content Layout --- */}
+            <div className=" z-10 w-full max-w-6xl mx-auto px-5">
+                <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-16 items-center">
 
-                {/* Text Content */}
-                <div className="space-y-8  flex flex-col items-end justify-end ">
-                    <TextReveal>
-                        <h3 className="text-4xl text-left w-[60%] md:text-5xl font-bold text-white font-inter">
-                            Beyond the <span className="text-slate-300">Lines of Code</span>
-                        </h3>
-                    </TextReveal>
+                    <div ref={visualContent} className="relative w-full flex justify-center items-center py-10 lg:py-0">
+                        <div className="w-full max-w-full overflow-hidden flex justify-center">
+                            <AsciiImage
+                                src="/images/mac.png"
+                                width={120}
+                                className="
+                text-white 
+                /* Responsive font-size specifically for this section */
+                text-[1.5vw]     /* Mobile: Large enough to see */
+                sm:text-[1.2vw]  /* Tablet */
+                lg:text-[0.5vw]  /* Desktop: Small enough to look sharp */
+                transition-all duration-300
+            "
+                            />
+                        </div>
 
-                    <div className="space-y-6 w-[50%] font-jet text-lg text-slate-400 leading-relaxed placeholder-opacity-80">
-                        <TextReveal delay={0.2}>
-                            <p>
-                                I don't just write code; I craft digital experiences. My journey started with a curiosity for how things work, evolving into a passion for building robust, scalable, and beautiful applications.
-                            </p>
-                        </TextReveal>
-                        <TextReveal delay={0.4}>
-                            <p>
-                                When I'm not debugging or optimizing performance, you can find me exploring new design trends or contributing to open source. I believe in the perfect blend of logic and creativity.
-                            </p>
-                        </TextReveal>
+                        {/* Decorative Tag */}
+                        <div className="absolute bottom-4 left-4 lg:-left-6 bg-white text-red-600 px-3 py-1 md:px-4 md:py-2 font-mono text-[10px] md:text-xs">
+                            Fetch Success | 200 OK
+                        </div>
                     </div>
 
-                    <div className="pt-4">
-                        <TextReveal delay={0.6}>
-                            <button className="px-6 py-3 border border-slate-700 text-white font-jet text-sm hover:bg-white hover:text-black transition-colors duration-300">
-                                READ MORE
-                            </button>
-                        </TextReveal>
+                    {/* Right Side: Text Content */}
+                    <div className="flex flex-col space-y-8">
+                        <div className="space-y-4">
+                            <TextReveal>
+                                <h3 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter text-white font-host leading-[1]">
+                                    Beyond the <br />
+                                    <span className="text-black">Lines of Code</span>
+                                </h3>
+                            </TextReveal>
+                        </div>
+
+                        <div className="space-y-6 max-w-xl">
+                            <TextReveal delay={0.2}>
+                                <p className="font-inter text-lg md:text-xl text-white leading-relaxed">
+                                    I don't just write code; I craft digital experiences. My journey
+                                    started with a curiosity for how things work, evolving into a
+                                    passion for building <span className="text-white font-semibold italic">robust, scalable</span> applications.
+                                </p>
+                            </TextReveal>
+
+                            <TextReveal delay={0.4}>
+                                <p className="font-inter text-lg md:text-xl text-white leading-relaxed">
+                                    When I'm not debugging or optimizing performance, you can find
+                                    me exploring new design trends or contributing to open source.
+                                    I believe in the perfect blend of logic and creativity.
+                                </p>
+                            </TextReveal>
+                        </div>
+
+                        {/* <div className="pt-6">
+                            <TextReveal delay={0.6}>
+                                <button className="group flex items-center gap-4 px-8 py-4 bg-white text-red-600 font-jet-mono text-sm font-bold hover:bg-black hover:text-white transition-all duration-500">
+                                    Visit Linked in
+                                    <MoveRight className="group-hover:translate-x-2 transition-transform" size={18} />
+                                </button>
+                            </TextReveal>
+                        </div> */}
                     </div>
+
                 </div>
-
-                {/* Visual Content (Parallaxed) */}
-                
             </div>
         </section>
     );

@@ -9,7 +9,7 @@
     --color-background: var(--background);
     --color-foreground: var(--foreground);
     --font-inter: var(--font-inter);
-    --font-relio: var(--font-relio);
+    --font-host: var(--font-host);
     --font-jet: var(--font-jet-mono);
 }
 
@@ -44,3 +44,4 @@ button {
     z-index: 999;
     background-color: white;
 }
+

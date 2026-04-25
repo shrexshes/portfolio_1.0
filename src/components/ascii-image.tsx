@@ -40,8 +40,7 @@ const AsciiImage: React.FC<AsciiImageProps> = ({
 
     return (
         <pre
-            className={`font-mono text-[10px] leading-[0.6] whitespace-pre overflow-hidden select-none ${className}`}
-        >
+            className={`font-mono text-center leading-[0.6] whitespace-pre overflow-hidden select-none ${className}`}        >
             {ascii}
         </pre>
     );

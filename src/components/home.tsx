@@ -5,14 +5,15 @@ import HeroSection from './hero-section'
 import AboutMe from './about-me';
 import BannerHome from './banner-home';
 import WorkExperience from './work-experience';
+import MarqueeBanner from './new-banner';
 
 const HomePage = () => {
   return (
     <div className='relative'>
       <HeroSection />
-      
-      <div className='sticky top-0 z-0'><BannerHome /></div>
+      <BannerHome />
       <AboutMe />
+      <MarqueeBanner/>
       <WorkExperience />
     </div>
   )

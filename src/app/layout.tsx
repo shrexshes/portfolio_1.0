@@ -1,35 +1,31 @@
 import type { Metadata } from "next";
-import { Geist, Inter_Tight  } from "next/font/google";
-import "./globals.css";
-import Header from "@/layout/header";
+import { Host_Grotesk, Inter_Tight } from "next/font/google";
 import localFont from "next/font/local";
-import Preloader from "@/components/Preloader";
-import CustomCursor from "@/components/custom-cursor";
+import "./globals.css";
 
-const jet_mono = localFont({
+import Header from "@/layout/header";
+import CustomCursor from "@/components/custom-cursor";
+import Preloader from "@/components/Preloader";
+
+// Font Definitions
+const jetMono = localFont({
   src: "../../public/fonts/jetbrains-mono.ttf",
   variable: "--font-jet-mono",
 });
 
-const relio = localFont({
-  src: "../../public/fonts/relio.ttf",
-  variable: "--font-relio",
-});
-
-// const geistSans = Geist({
-//   variable: "--font-geist-sans",
-//   subsets: ["latin"],
-// });
-
-const inter =  Inter_Tight ({
-  variable: "--font-inter",
+const hostGrotesk = Host_Grotesk({
   subsets: ["latin"],
+  variable: "--font-host",
 });
 
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   title: "Ayush Shrestha",
-  description: "Portfolio of - Ayush Shrestha",
+  description: "Portfolio of Ayush Shrestha",
 };
 
 export default function RootLayout({
@@ -40,10 +36,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${jet_mono.variable} ${inter.variable} antialiased`}
+        className={`
+          ${hostGrotesk.variable} 
+          ${interTight.variable} 
+          ${jetMono.variable} 
+          antialiased
+        `}
       >
-        <CustomCursor/>
-        {/* <Preloader /> */}
+        <CustomCursor />
+        {/* <Preloader/> */}
         <Header />
         {children}
       </body>
