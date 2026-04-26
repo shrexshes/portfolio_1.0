@@ -40,19 +40,19 @@ export default function Preloader() {
             });
 
             tl.to(".shutter-top", {
-            yPercent: -100,
-            duration: 1.5,
-            ease: "power4.inOut",
-            onStart: () => {
-                window.dispatchEvent(new Event("loaderFinished"));
-            }
-        }, "-=0.2");
+                yPercent: -100,
+                duration: 1.5,
+                ease: "power4.inOut",
+                onStart: () => {
+                    window.dispatchEvent(new Event("loaderFinished"));
+                }
+            }, "-=0.2");
 
-        tl.to(".shutter-bottom", {
-            yPercent: 100,
-            duration: 1.5,
-            ease: "power4.inOut",
-        }, "<");
+            tl.to(".shutter-bottom", {
+                yPercent: 100,
+                duration: 1.5,
+                ease: "power4.inOut",
+            }, "<");
 
             tl.to(containerRef.current, {
                 display: "none",
@@ -70,19 +70,35 @@ export default function Preloader() {
             className="fixed inset-0 z-[9999] flex flex-col pointer-events-none"
         >
             {/* Top Shutter */}
-            <div className="shutter-top relative w-full h-[50vh] bg-red-700 pointer-events-auto flex items-end justify-center overflow-hidden">
-                {/* Optional visual noise or texture could go here */}
+            <div className="shutter-top relative w-full h-[50vh] bg-red-600 pointer-events-auto flex items-end justify-center overflow-hidden border-b border-white/5">
+                {/* Top Right Spinner */}
+                <div className="absolute top-10 right-10 flex items-center gap-3">
+                    <span className="text-[10px] font-host text-white uppercase">establishing connection</span>
+                    <div className="w-4 h-4 border-3 border-white border-t-white/20 rounded-full animate-spin"></div>
+                </div>
+                <div className="text-xs md:text-lg mb-10 font-host font-bold text-white uppercase  px-5">
+                Ayush Shrestha's Portfolio © {new Date().getFullYear()} / Global
+
+                </div>
             </div>
 
             {/* Bottom Shutter */}
-            <div className="shutter-bottom relative w-full h-[50vh] bg-red-700 pointer-events-auto flex items-start justify-center overflow-hidden">
+            <div className="shutter-bottom relative w-full h-[50vh] bg-red-600 pointer-events-auto flex items-start justify-center overflow-hidden">
+                {/* Bottom Left Info */}
+                <div className="absolute bottom-10 left-10 flex flex-col gap-1">
+                     <div className="text-[10px] font-host text-white uppercase ">Type: Portfolio_Core_v1</div>
+                </div>
+                
+                {/* Bottom Right Copyright/Design */}
+                <div className="absolute bottom-10 right-10 text-[10px] font-host text-white uppercase">
+                    © {new Date().getFullYear()} / Global
+                </div>
             </div>
 
-            {/* Centered Percentage - Absolute positioned to be strictly in middle */}
-            <div className="absolute inset-0 z-50 flex items-center justify-center ">
-                <h1
-                    className="text-3xl font-bold text-white font-host tracking-tighter"
-                >
+            {/* Centered Content */}
+            <div className="absolute inset-0 z-50 flex flex-col items-center justify-center gap-2">
+                
+                <h1 className="text-2xl md:text-6xl font-bold text-white uppercase font-host tracking-tighter">
                     <span className="loader-text">
                         <span ref={percentageRef}>loading 0%</span>
                     </span>
