@@ -3,6 +3,7 @@
 import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import FirefliesBackground from "./fireflies-background";
 
 const MarqueeBanner = () => {
     const marqueeRef = useRef<HTMLDivElement>(null);
@@ -30,8 +31,9 @@ const MarqueeBanner = () => {
     ];
 
     return (
-        <div className="relative py-4 md:py-8 bg-black border-y border-white/20 overflow-hidden select-none">
+        <div className="relative z-20 py-4 md:py-8 bg-black border-y border-white/20 overflow-hidden select-none">
             {/* The Track */}
+            <FirefliesBackground/>
             <div
                 ref={marqueeRef}
                 className="flex whitespace-nowrap items-center will-change-transform"
@@ -39,7 +41,7 @@ const MarqueeBanner = () => {
                 {/* We duplicate the list to ensure a seamless loop */}
                 {[...items, ...items].map((item, index) => (
                     <div key={index} className="flex items-center">
-                        <span className="text-4xl md:text-[4rem] font-host font-black tracking-tighter text-white px-8">
+                        <span className="text-4xl md:text-[4rem] font-host font-black tracking-tighter  bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/40 px-8">
                             {item}
                         </span>
                         {/* Decorative separator */}

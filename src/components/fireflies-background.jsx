@@ -84,7 +84,7 @@ const FirefliesBackground = () => {
     return (
         <canvas
             ref={canvasRef}
-            className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-60"
+            className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-90"
             style={{ mixBlendMode: 'screen' }}
         />
     );

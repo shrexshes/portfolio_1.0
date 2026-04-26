@@ -5,7 +5,7 @@ import { Glasses } from 'lucide-react'
 
 const BannerHome = () => {
   return (
-    <div className='relative bg-black z-0 overflow-hidden'>
+    <div className='relative bg-black z-20 overflow-hidden'>
       <FirefliesBackground />
       <div className='max-w-6xl mx-auto px-5'>
         

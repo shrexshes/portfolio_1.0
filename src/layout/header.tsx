@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <header className="fixed top-4 left-0 right-0 z-50 flex justify-center  px-4">
-      <div className="w-full max-w-[1100px] backdrop-blur-sm bg-radial bg-200/10 bg-linear-300 from-red-600 to-red-800/60 border-1 border-red-900 rounded-full px-6 py-4 transition-all duration-300">
+      <div className="w-full max-w-[1100px] backdrop-blur-sm bg-radial bg-200/10 bg-linear-300 from-red-600 to-red-800/60 border-1 border-red-900 rounded-full md:rounded-full px-6 py-4 transition-all duration-300">
         <div className="flex items-center justify-between">
 
           {/* Logo */}

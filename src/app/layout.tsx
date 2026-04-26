@@ -44,7 +44,7 @@ export default function RootLayout({
         `}
       >
         <CustomCursor />
-        {/* <Preloader/> */}
+        <Preloader/>
         <Header />
         {children}
       </body>

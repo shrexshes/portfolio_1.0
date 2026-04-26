@@ -39,7 +39,7 @@ const AboutMe = () => {
     return (
         <section
             ref={container}
-            className="relative min-h-screen w-full bg-red-600 flex items-center overflow-hidden py-24"
+            className="relative z-20 min-h-screen w-full bg-red-600 flex items-center overflow-hidden py-24"
         >
             <FirefliesBackground />
 
@@ -47,7 +47,7 @@ const AboutMe = () => {
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
                 <h2
                     ref={bgText}
-                    className="text-[25vw] font-bold text-black/10 font-host leading-none whitespace-nowrap select-none"
+                    className="text-[17vw] font-bold text-black/10 font-host leading-none whitespace-nowrap select-none"
                     style={{ willChange: "transform" }}
                 >
                     ABOUT ME
@@ -75,7 +75,7 @@ const AboutMe = () => {
                         </div>
 
                         {/* Decorative Tag */}
-                        <div className="absolute bottom-4 left-4 lg:-left-6 bg-white text-red-600 px-3 py-1 md:px-4 md:py-2 font-mono text-[10px] md:text-xs">
+                        <div className="absolute bottom-4 left-4 lg:-left-6 bg-white text-black px-3 py-1 md:px-4 md:py-2 font-jet text-[10px] md:text-xs">
                             Fetch Success | 200 OK
                         </div>
                     </div>

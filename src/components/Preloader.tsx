@@ -14,15 +14,12 @@ export default function Preloader() {
             const tl = gsap.timeline({
                 onComplete: () => {
                     setShow(false);
-                    // Optional: Enable body scroll if disabled
                     document.body.style.overflow = "auto";
                 },
             });
 
-            // Disable scroll initially
             document.body.style.overflow = "hidden";
 
-            // Animate the counter from 0 to 100
             const counter = { value: 0 };
 
             tl.to(counter, {
@@ -36,33 +33,31 @@ export default function Preloader() {
                 },
             });
 
-            // Fade out the percentage
             tl.to(percentageRef.current, {
                 opacity: 0,
                 duration: 0.5,
                 ease: "power2.inOut",
             });
 
-            // Open the "window"
-            // We assume there are two panels: top and bottom
             tl.to(".shutter-top", {
-                yPercent: -100,
-                duration: 1.5,
-                ease: "power4.inOut",
-            }, "<");
+            yPercent: -100,
+            duration: 1.5,
+            ease: "power4.inOut",
+            onStart: () => {
+                window.dispatchEvent(new Event("loaderFinished"));
+            }
+        }, "-=0.2");
 
-            tl.to(".shutter-bottom", {
-                yPercent: 100,
-                duration: 1.5,
-                ease: "power4.inOut",
-            }, "<"); // Synced with previous
+        tl.to(".shutter-bottom", {
+            yPercent: 100,
+            duration: 1.5,
+            ease: "power4.inOut",
+        }, "<");
 
-            // Fade out container just in case
             tl.to(containerRef.current, {
                 display: "none",
                 duration: 0
             });
-
         },
         { scope: containerRef }
     );
@@ -75,18 +70,18 @@ export default function Preloader() {
             className="fixed inset-0 z-[9999] flex flex-col pointer-events-none"
         >
             {/* Top Shutter */}
-            <div className="shutter-top relative w-full h-[50vh] bg-neutral-900 pointer-events-auto flex items-end justify-center overflow-hidden">
+            <div className="shutter-top relative w-full h-[50vh] bg-red-700 pointer-events-auto flex items-end justify-center overflow-hidden">
                 {/* Optional visual noise or texture could go here */}
             </div>
 
             {/* Bottom Shutter */}
-            <div className="shutter-bottom relative w-full h-[50vh] bg-neutral-900 pointer-events-auto flex items-start justify-center overflow-hidden">
+            <div className="shutter-bottom relative w-full h-[50vh] bg-red-700 pointer-events-auto flex items-start justify-center overflow-hidden">
             </div>
 
             {/* Centered Percentage - Absolute positioned to be strictly in middle */}
-            <div className="absolute inset-0 z-50 flex items-center justify-center pointer-events-none mix-blend-difference">
+            <div className="absolute inset-0 z-50 flex items-center justify-center ">
                 <h1
-                    className="text-3xl font-bold text-white font-jet tracking-tighter"
+                    className="text-3xl font-bold text-white font-host tracking-tighter"
                 >
                     <span className="loader-text">
                         <span ref={percentageRef}>loading 0%</span>
