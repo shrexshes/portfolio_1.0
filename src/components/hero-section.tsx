@@ -67,7 +67,7 @@ const HeroSection = () => {
 
             <div className="z-20 text-center px-4 max-w-6xl mt-20 mx-auto flex flex-col gap-5 items-center">
                 {/* Initial opacity-0 blur-md on all content */}
-                <div className="hero-badge opacity-0 blur-md inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black border border-white/10 backdrop-blur-sm text-sm font-jet text-white mb-10">
+                <div className="hero-badge uppercase opacity-0 blur-md inline-flex items-center gap-2 py-1 rounded-full bg-black px-5 backdrop-blur-sm text-sm font-host text-white mb-10">
                     available for freelance work
                 </div>
 

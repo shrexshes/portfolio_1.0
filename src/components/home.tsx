@@ -14,12 +14,18 @@ const HomePage = () => {
       <HeroSection />
       <BannerHome />
       <AboutMe />
-      <MarqueeBanner/>
+      <MarqueeBanner />
 
       <WorkExperience />
-      <div className="sticky bottom-0 z-10 w-full h-[400px]"> 
-      <ZenFooter/>
+       <div className='bg-black relative flex items-center justify-center py-10 z-20'>
+        <span className="text-white text-xs md:text-[1.5rem] font-host uppercase font-bold">
+          Great products don't build themselves , but I can help.
+        </span>
       </div>
+      <div className="sticky bottom-0 z-10 w-full ">
+        <ZenFooter />
+      </div>
+     
     </div>
   )
 }

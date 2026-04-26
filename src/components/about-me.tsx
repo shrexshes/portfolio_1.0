@@ -85,8 +85,8 @@ const AboutMe = () => {
                         <div className="space-y-4">
                             <TextReveal>
                                 <h3 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter text-white font-host leading-[1]">
-                                    Beyond the <br />
-                                    <span className="text-black">Lines of Code</span>
+                                  Built   <br />
+                                    <span className="text-black">Different</span>
                                 </h3>
                             </TextReveal>
                         </div>
@@ -94,17 +94,13 @@ const AboutMe = () => {
                         <div className="space-y-6 max-w-xl">
                             <TextReveal delay={0.2}>
                                 <p className="font-inter text-lg md:text-xl text-white leading-relaxed">
-                                    I don't just write code; I craft digital experiences. My journey
-                                    started with a curiosity for how things work, evolving into a
-                                    passion for building <span className="text-white font-semibold italic">robust, scalable</span> applications.
+                                    I build software the way most people only talk about,  end to end, detail obsessed, no shortcuts. Frontend that feels alive, backends built to last, AI that solves real problems. Full stack isn't a title for me, it's just how my brain works.
                                 </p>
                             </TextReveal>
 
                             <TextReveal delay={0.4}>
                                 <p className="font-inter text-lg md:text-xl text-white leading-relaxed">
-                                    When I'm not debugging or optimizing performance, you can find
-                                    me exploring new design trends or contributing to open source.
-                                    I believe in the perfect blend of logic and creativity.
+                                  Perfectionism isn't a flaw I'm working on. It's the reason the products I build are worth using.
                                 </p>
                             </TextReveal>
                         </div>

@@ -34,7 +34,7 @@ const ZenFooter = () => {
                                 <span className="w-2 h-2 bg-white animate-pulse rounded-full" />
                                 System Connection: Active
                             </div> */}
-                            <h2 className="text-7xl font-host font-bold text-white tracking-tighter uppercase leading-none">
+                            <h2 className="text-5xl font-host font-bold text-white tracking-tighter uppercase leading-none">
                                 Ayush<span className="text-red-600 ml-3">.</span>
                             </h2>
                         </div>
@@ -49,7 +49,7 @@ const ZenFooter = () => {
                                     { icon: <TwitterIcon size={16} />, href: "#" },
                                     { icon: <LinkedinIcon size={16} />, href: "#" }
                                 ].map((social, i) => (
-                                    <a key={i} href={social.href} className="p-2 bg-red-600 rounded-full text-black hover:bg-white hover:text-black transition-all duration-300">
+                                    <a key={i} href={social.href} className="p-2 bg-white rounded-full text-black hover:bg-white hover:text-black transition-all duration-300">
                                         {social.icon}
                                     </a>
                                 ))}
