@@ -1,23 +1,51 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import AsciiImage from "./ascii-image";
 import { Mail, MessageSquare, ArrowUpRight, Github, Twitter, Linkedin } from "lucide-react";
 
 const ContactSection = () => {
+    const [status, setStatus] = useState("Send Message");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubmit = async (event:any) => {
+        event.preventDefault();
+        setIsSubmitting(true);
+        setStatus("Sending...");
+
+        const formData = new FormData(event.target);
+        // Your Access Key integrated here
+        formData.append("access_key", "0dfa929e-2f81-4c61-ba6d-a2b45980cf70");
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setStatus("Success!");
+                event.target.reset();
+                setTimeout(() => setStatus("Send Message"), 3000);
+            } else {
+                setStatus("Error!");
+                setTimeout(() => setStatus("Send Message"), 3000);
+            }
+        } catch (error) {
+            setStatus("Error!");
+            setTimeout(() => setStatus("Send Message"), 3000);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     return (
         <section 
-            className="relative z-20 min-h-screen w-full bg-red-600 flex items-center py-16 md:py-20 overflow-hidden selection:bg-black selection:text-red-500"
+            className="relative z-20 min-h-screen w-full flex items-center overflow-hidden selection:bg-black selection:text-red-500"
         >
-            {/* Background Decorative Text - Matching AboutMe style */}
-            {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-                <h2 className="text-[18vw] font-bold text-black/5 font-host leading-none whitespace-nowrap select-none">
-                    SAY HELLO
-                </h2>
-            </div> */}
-
             <div className="relative z-10 w-full max-w-6xl mx-auto px-5">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
                     
@@ -34,11 +62,13 @@ const ContactSection = () => {
                             </p>
                         </div>
 
-                        <form className="contact-form space-y-6">
+                        <form onSubmit={handleSubmit} className="contact-form space-y-6">
                             <div className="group relative">
                                 <label className="block font-bold font-inter text-sm uppercase text-black mb-2">01. Full Name</label>
                                 <input 
+                                    name="name"
                                     type="text" 
+                                    required
                                     placeholder="John Doe"
                                     className="w-full bg-transparent border-b-2 border-black/20 py-4 text-white placeholder:text-black/20 focus:outline-none focus:border-black transition-colors font-inter text-sm md:text-xl"
                                 />
@@ -47,23 +77,31 @@ const ContactSection = () => {
                             <div className="group relative">
                                 <label className="block font-bold font-inter text-sm uppercase text-black mb-2">02. Email Address</label>
                                 <input 
+                                    name="email"
                                     type="email" 
+                                    required
                                     placeholder="john@example.com"
-                                    className="w-full bg-transparent border-b-2 border-black/20 py-4 text-white placeholder:text-black/20    focus:outline-none focus:border-black transition-colors font-inter text-sm md:text-xl"
+                                    className="w-full bg-transparent border-b-2 border-black/20 py-4 text-white placeholder:text-black/20 focus:outline-none focus:border-black transition-colors font-inter text-sm md:text-xl"
                                 />
                             </div>
 
                             <div className="group relative">
-                                <label className="block font-bold font-inter text-sm uppercase text-black    mb-2">03. Your Message</label>
+                                <label className="block font-bold font-inter text-sm uppercase text-black mb-2">03. Your Message</label>
                                 <textarea 
+                                    name="message"
                                     rows={4}
-                                    placeholder="Tell me about the project , Collab?, Want money? "
+                                    required
+                                    placeholder="Tell me about the project..."
                                     className="w-full bg-transparent border-b-2 border-black/20 py-4 text-white placeholder:text-black/20 focus:outline-none focus:border-black transition-colors font-inter text-sm md:text-xl resize-none"
                                 />
                             </div>
 
-                            <button className="group flex items-center gap-4 px-10 py-5 bg-black text-white font-jet text-sm font-bold hover:bg-white hover:text-black transition-all duration-500 uppercase">
-                                Send Message
+                            <button 
+                                type="submit"
+                                disabled={isSubmitting}
+                                className="group flex items-center gap-4 px-10 py-5 bg-black text-white font-jet text-sm font-bold hover:bg-white hover:text-black transition-all duration-500 uppercase disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                {status}
                                 <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={20} />
                             </button>
                         </form>
@@ -73,7 +111,7 @@ const ContactSection = () => {
                     <div className="flex flex-col justify-between md:py-10">
                         <div className="absolute z-0 flex justify-center lg:justify-end opacity-40 grayscale contrast-125">
                             <AsciiImage
-                                src="/images/phone.png" // Reuse your existing mac image or a phone image
+                                src="/images/phone.png"
                                 width={200}
                                 className="text-white text-[1vw] lg:text-[0.7vw]"
                             />
@@ -116,7 +154,7 @@ const ContactSection = () => {
                 </div>
             </div>
 
-            {/* Corner Accents - Consistent with Hero */}
+            {/* Corner Accents */}
             <div className="absolute top-8 left-8 w-4 h-4 border-l border-t border-black opacity-30"></div>
             <div className="absolute bottom-8 right-8 w-4 h-4 border-r border-b border-black opacity-30"></div>
         </section>

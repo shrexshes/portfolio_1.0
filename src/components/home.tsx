@@ -22,8 +22,9 @@ const HomePage = () => {
           Great products don't build themselves , but I can help.
         </span>
       </div>
+      <div className='bg-red-600 py-16 md:py-24 z-20 relative'>
       <ContactSection/>
-      
+      </div>
     </div>
   )
 }
