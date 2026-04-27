@@ -6,8 +6,6 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AsciiImage from "./ascii-image";
 import TextReveal from "./text-reveal";
-import { MoveRight } from "lucide-react";
-import FirefliesBackground from "./fireflies-background";
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -39,10 +37,8 @@ const AboutMe = () => {
     return (
         <section
             ref={container}
-            className="relative z-20 min-h-screen w-full bg-red-600 flex items-center overflow-hidden py-24"
+            className="relative z-20 min-h-screen w-full bg-red-600 flex items-center overflow-hidden py-10 md:py-20"
         >
-            <FirefliesBackground />
-
             {/* --- Background Parallax Layer --- */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
                 <h2
@@ -93,13 +89,13 @@ const AboutMe = () => {
 
                         <div className="space-y-6 max-w-xl">
                             <TextReveal delay={0.2}>
-                                <p className="font-inter text-lg md:text-xl text-white leading-relaxed">
+                                <p className="font-inter text-sm md:text-xl text-white leading-relaxed">
                                     I build software the way most people only talk about,  end to end, detail obsessed, no shortcuts. Frontend that feels alive, backends built to last, AI that solves real problems. Full stack isn't a title for me, it's just how my brain works.
                                 </p>
                             </TextReveal>
 
                             <TextReveal delay={0.4}>
-                                <p className="font-inter text-lg md:text-xl text-white leading-relaxed">
+                                <p className="font-inter text-sm md:text-xl text-white leading-relaxed">
                                   Perfectionism isn't a flaw I'm working on. It's the reason the products I build are worth using.
                                 </p>
                             </TextReveal>

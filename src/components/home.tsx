@@ -6,7 +6,7 @@ import AboutMe from './about-me';
 import BannerHome from './banner-home';
 import WorkExperience from './work-experience';
 import MarqueeBanner from './new-banner';
-import ZenFooter from '@/layout/footer';
+import ContactSection from './contact';
 
 const HomePage = () => {
   return (
@@ -17,15 +17,13 @@ const HomePage = () => {
       <MarqueeBanner />
 
       <WorkExperience />
-       <div className='bg-black relative flex items-center justify-center py-10 z-20'>
+      <div className='bg-black relative flex items-center justify-center py-10 z-20'>
         <span className="text-white text-xs md:text-[1.5rem] font-host uppercase font-bold">
           Great products don't build themselves , but I can help.
         </span>
       </div>
-      <div className="sticky bottom-0 z-10 w-full ">
-        <ZenFooter />
-      </div>
-     
+      <ContactSection/>
+      
     </div>
   )
 }

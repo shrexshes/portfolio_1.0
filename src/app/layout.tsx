@@ -5,7 +5,7 @@ import "./globals.css";
 
 import Header from "@/layout/header";
 import CustomCursor from "@/components/custom-cursor";
-import Preloader from "@/components/Preloader";
+import ZenFooter from "@/layout/footer";
 
 // Font Definitions
 const jetMono = localFont({
@@ -44,9 +44,12 @@ export default function RootLayout({
         `}
       >
         <CustomCursor />
-        <Preloader/>
         <Header />
         {children}
+        <div className="sticky bottom-0 z-10 w-full ">
+          <ZenFooter />
+        </div>
+
       </body>
     </html>
   );

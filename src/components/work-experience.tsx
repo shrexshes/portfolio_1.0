@@ -6,6 +6,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Briefcase, Calendar, Terminal } from "lucide-react";
 import AsciiImage from "./ascii-image";
+import TextReveal from "./text-reveal";
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -87,7 +88,7 @@ const WorkExperience = () => {
     }, { scope: containerRef });
 
     return (
-        <section ref={containerRef} className="relative z-20 min-h-screen w-full bg-red-600  overflow-hidden py-20">
+        <section ref={containerRef} className="relative z-20 min-h-screen w-full bg-red-600  overflow-hidden py-10 md:py-20">
 
             {/* --- Background ASCII & Text --- */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-15 z-0">
@@ -96,19 +97,22 @@ const WorkExperience = () => {
                 </h2>
             </div>
 
-            <div className="absolute -top-30 left-0 pointer-events-none  hidden lg:block">
-                <AsciiImage src="/images/bw_hands.jpg" width={120} className="text-black/50 text-[10px]" />
+            <div className="absolute -top-30 left-0 pointer-events-none block">
+                <AsciiImage src="/images/bw_hands.jpg" width={120} className="text-white/70 text-[1.5vw] md:text-[0.6vw]" />
             </div>
 
             {/* --- Content --- */}
             <div className="relative z-10 max-w-6xl mx-auto px-6">
 
                 {/* Header */}
-                <div className="mb-24 space-y-4">
-                    <h2 className="text-[3rem] md:text-[6rem] text-black uppercase font-host font-bold tracking-tighter leading-none">
-                        Work <br />
-                        <span className="text-white">Timeline .</span>
-                    </h2>
+                <div className="md:mb-24 mt-10 md:mt-0 space-y-4">
+                    <TextReveal>
+
+                        <h2 className="text-[3rem] md:text-[6rem] text-black uppercase font-host font-bold tracking-tighter leading-none">
+                            Work <br />
+                            <span className="text-white">Timeline .</span>
+                        </h2>
+                    </TextReveal>
                 </div>
 
                 {/* Experience List */}
@@ -118,7 +122,7 @@ const WorkExperience = () => {
 
                             {/* Period */}
                             <div className="lg:col-span-3 mb-4 lg:mb-0">
-                                <div className="flex items-center gap-2 text-white font-jet text-sm uppercase tracking-widest">
+                                <div className="flex items-center gap-2 text-white font-jet text-sm uppercase">
                                     <Calendar size={14} className="text-white" />
                                     {exp.period}
                                 </div>
@@ -126,7 +130,7 @@ const WorkExperience = () => {
 
                             {/* Main Info */}
                             <div className="lg:col-span-6 space-y-4">
-                                <h3 className="text-3xl md:text-4xl text-black font-host font-bold group-hover:translate-x-2 transition-transform duration-500">
+                                <h3 className="text-3xl md:text-4xl text-black font-host tracking-tighter leading-[1] font-bold group-hover:translate-x-2 transition-transform duration-500">
                                     {exp.role}
                                 </h3>
                                 <div className="flex items-center gap-2 text-white font-bold font-inter text-lg">
