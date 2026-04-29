@@ -1,4 +1,5 @@
 'use client'
+import Image from "next/image";
 import React, { useState } from "react";
 
 const Header = () => {
@@ -18,7 +19,8 @@ const Header = () => {
         <div className="flex items-center justify-between">
 
           {/* Logo - Vertically Aligned */}
-          <a href="/" className="group flex items-center">
+          <a href="/" className="group flex gap-3 items-center">
+          <Image src="/images/icon.png" alt="icon of ayush shrestha" className="w-8 " width={100} height={100}/>
             <h1 className="text-xl font-bold font-inter text-white tracking-tighter">
               ayush.
             </h1>
