@@ -3,6 +3,7 @@
 import React, { useRef, useEffect, memo } from "react";
 import AsciiImage from "./ascii-image";
 import { GithubIcon, GlobeIcon } from "lucide-react";
+import Link from "next/link";
 
 // Memoize to prevent unnecessary re-renders of the background
 const MemoizedAscii = memo(() => (
@@ -113,9 +114,9 @@ const HeroSection = () => {
                         <span className="relative z-10">VIEW WORK</span>
                         <div className="absolute inset-0 bg-gray-200 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100 z-0"></div>
                     </button>
-                    <button className="px-8 py-4 bg-black border border-gray-600 text-white font-jet text-sm hover:bg-gray-900 transition-all flex items-center gap-2">
+                    <Link  target='_blank' href="https://github.com/shrexshes" className="px-8 py-4 bg-black border border-gray-600 text-white font-jet text-sm hover:bg-gray-900 transition-all flex items-center gap-2">
                         <GithubIcon className="w-4 h-4" /> GITHUB
-                    </button>
+                    </Link>
                 </div>
             </div>
         </section>

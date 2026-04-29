@@ -3,6 +3,7 @@
 import React from 'react';
 import { GithubIcon, TwitterIcon, LinkedinIcon, ArrowUpRight } from "lucide-react";
 import AsciiImage from '@/components/ascii-image';
+import Link from 'next/link';
 
 const ZenFooter = () => {
     const currentYear = new Date().getFullYear();
@@ -45,13 +46,13 @@ const ZenFooter = () => {
                             </p>
                             <div className="flex gap-4">
                                 {[
-                                    { icon: <GithubIcon size={16} />, href: "#" },
-                                    { icon: <TwitterIcon size={16} />, href: "#" },
-                                    { icon: <LinkedinIcon size={16} />, href: "#" }
+                                    { icon: <GithubIcon size={16} />, href: "https://github.com/shrexshes" },
+                                    { icon: <TwitterIcon size={16} />, href: "https://x.com/AyushShrestha69" },
+                                    { icon: <LinkedinIcon size={16} />, href: "https://www.linkedin.com/in/ayushshrestha36/" }
                                 ].map((social, i) => (
-                                    <a key={i} href={social.href} className="p-2 bg-white rounded-full text-black hover:bg-white hover:text-black transition-all duration-300">
+                                    <Link target='_blank' key={i} href={social.href} className="p-2 bg-white rounded-full text-black hover:bg-white hover:text-black transition-all duration-300">
                                         {social.icon}
-                                    </a>
+                                    </Link>
                                 ))}
                             </div>
                         </div>

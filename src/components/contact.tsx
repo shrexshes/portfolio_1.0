@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import AsciiImage from "./ascii-image";
 import { Mail, MessageSquare, ArrowUpRight, Github, Twitter, Linkedin } from "lucide-react";
+import Link from "next/link";
 
 const ContactSection = () => {
     const [status, setStatus] = useState("Send Message");
@@ -138,15 +139,15 @@ const ContactSection = () => {
 
                             {/* Socials Grid */}
                             <div className="grid grid-cols-2 gap-4">
-                                <a href="#" className="flex items-center justify-between p-4 border border-white/20 text-white hover:bg-white hover:text-black transition-all font-jet text-sm">
+                                <Link  target='_blank' href="https://github.com/shrexshes" className="flex items-center justify-between p-4 border border-white/20 text-white hover:bg-white hover:text-black transition-all font-jet text-sm">
                                     GITHUB <Github size={16} />
-                                </a>
-                                <a href="#" className="flex items-center justify-between p-4 border border-white/20 text-white hover:bg-white hover:text-black transition-all font-jet text-sm">
+                                </Link>
+                                <Link  target='_blank' href="https://www.linkedin.com/in/ayushshrestha36/" className="flex items-center justify-between p-4 border border-white/20 text-white hover:bg-white hover:text-black transition-all font-jet text-sm">
                                     LINKEDIN <Linkedin size={16} />
-                                </a>
-                                <a href="#" className="flex items-center justify-between p-4 border border-white/20 text-white hover:bg-white hover:text-black transition-all font-jet text-sm">
+                                </Link>
+                                <Link  target='_blank' href="https://x.com/AyushShrestha69" className="flex items-center justify-between p-4 border border-white/20 text-white hover:bg-white hover:text-black transition-all font-jet text-sm">
                                     TWITTER <Twitter size={16} />
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
